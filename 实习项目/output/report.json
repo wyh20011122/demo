@@ -1,0 +1,132 @@
+{
+    "generated_time": "2026-05-21 12:59:30.006624",
+    "total_cases": 8,
+    "passed": 6,
+    "failed": 2,
+    "bug_count": 2,
+    "results": [
+        {
+            "case_id": "TC_REG_001",
+            "module": "register",
+            "description": "Username shorter than required length",
+            "expected_status": 400,
+            "actual_status": 200,
+            "actual_response": {
+                "message": "Register success"
+            },
+            "result": "FAIL"
+        },
+        {
+            "case_id": "TC_REG_002",
+            "module": "register",
+            "description": "Username equals boundary length",
+            "expected_status": 400,
+            "actual_status": 200,
+            "actual_response": {
+                "message": "Register success"
+            },
+            "result": "FAIL"
+        },
+        {
+            "case_id": "TC_REG_003",
+            "module": "register",
+            "description": "Valid registration",
+            "expected_status": 200,
+            "actual_status": 200,
+            "actual_response": {
+                "message": "Register success"
+            },
+            "result": "PASS"
+        },
+        {
+            "case_id": "TC_REG_004",
+            "module": "register",
+            "description": "Password shorter than required length",
+            "expected_status": 400,
+            "actual_status": 400,
+            "actual_response": {
+                "error": "Password must be longer than 8 characters"
+            },
+            "result": "PASS"
+        },
+        {
+            "case_id": "TC_REG_005",
+            "module": "register",
+            "description": "Invalid email format",
+            "expected_status": 400,
+            "actual_status": 400,
+            "actual_response": {
+                "error": "Invalid email format"
+            },
+            "result": "PASS"
+        },
+        {
+            "case_id": "TC_REG_006",
+            "module": "register",
+            "description": "Confirm password does not match password",
+            "expected_status": 400,
+            "actual_status": 400,
+            "actual_response": {
+                "error": "Confirm password does not match"
+            },
+            "result": "PASS"
+        },
+        {
+            "case_id": "TC_LOGIN_001",
+            "module": "login",
+            "description": "Login with correct username and password",
+            "expected_status": 200,
+            "actual_status": 200,
+            "actual_response": {
+                "data": "Welcome! You have successfully logged in.",
+                "message": "Login success"
+            },
+            "result": "PASS"
+        },
+        {
+            "case_id": "TC_LOGIN_002",
+            "module": "login",
+            "description": "Login with wrong password",
+            "expected_status": 400,
+            "actual_status": 400,
+            "actual_response": {
+                "error": "Incorrect password"
+            },
+            "result": "PASS"
+        }
+    ],
+    "bugs": [
+        {
+            "bug_id": "BUG_TC_REG_001",
+            "title": "Requirement validation failed",
+            "severity": "HIGH",
+            "priority": "P1",
+            "module": "register",
+            "related_case": "TC_REG_001",
+            "description": "Username shorter than required length",
+            "expected_result": 400,
+            "actual_result": 200,
+            "actual_response": {
+                "message": "Register success"
+            },
+            "status": "OPEN",
+            "created_by": "auto_test_plugin"
+        },
+        {
+            "bug_id": "BUG_TC_REG_002",
+            "title": "Requirement validation failed",
+            "severity": "HIGH",
+            "priority": "P1",
+            "module": "register",
+            "related_case": "TC_REG_002",
+            "description": "Username equals boundary length",
+            "expected_result": 400,
+            "actual_result": 200,
+            "actual_response": {
+                "message": "Register success"
+            },
+            "status": "OPEN",
+            "created_by": "auto_test_plugin"
+        }
+    ]
+}

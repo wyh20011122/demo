@@ -1,0 +1,110 @@
+[
+    {
+        "case_id": "TC_REG_001",
+        "module": "register",
+        "description": "Username shorter than required length",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "abc",
+            "password": "123456789",
+            "email": "test1@example.com",
+            "confirm_password": "123456789"
+        },
+        "expected_status": 400
+    },
+    {
+        "case_id": "TC_REG_002",
+        "module": "register",
+        "description": "Username equals boundary length",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "abcdef",
+            "password": "123456789",
+            "email": "test2@example.com",
+            "confirm_password": "123456789"
+        },
+        "expected_status": 400
+    },
+    {
+        "case_id": "TC_REG_003",
+        "module": "register",
+        "description": "Valid registration",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "abcdefg",
+            "password": "123456789",
+            "email": "test3@example.com",
+            "confirm_password": "123456789"
+        },
+        "expected_status": 200
+    },
+    {
+        "case_id": "TC_REG_004",
+        "module": "register",
+        "description": "Password shorter than required length",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "validuser1",
+            "password": "123",
+            "email": "test4@example.com",
+            "confirm_password": "123"
+        },
+        "expected_status": 400
+    },
+    {
+        "case_id": "TC_REG_005",
+        "module": "register",
+        "description": "Invalid email format",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "validuser2",
+            "password": "123456789",
+            "email": "invalidemail",
+            "confirm_password": "123456789"
+        },
+        "expected_status": 400
+    },
+    {
+        "case_id": "TC_REG_006",
+        "module": "register",
+        "description": "Confirm password does not match password",
+        "endpoint": "/register",
+        "method": "POST",
+        "input": {
+            "username": "validuser3",
+            "password": "123456789",
+            "email": "test6@example.com",
+            "confirm_password": "987654321"
+        },
+        "expected_status": 400
+    },
+    {
+        "case_id": "TC_LOGIN_001",
+        "module": "login",
+        "description": "Login with correct username and password",
+        "endpoint": "/login",
+        "method": "POST",
+        "input": {
+            "username": "abcdefg",
+            "password": "123456789"
+        },
+        "expected_status": 200
+    },
+    {
+        "case_id": "TC_LOGIN_002",
+        "module": "login",
+        "description": "Login with wrong password",
+        "endpoint": "/login",
+        "method": "POST",
+        "input": {
+            "username": "abcdefg",
+            "password": "wrongpassword"
+        },
+        "expected_status": 400
+    }
+]

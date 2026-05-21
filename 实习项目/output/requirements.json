@@ -1,0 +1,26 @@
+[
+    {
+        "requirement_id": "REQ_002",
+        "module": "register",
+        "field": "password",
+        "type": "validation",
+        "rule": "password length_greater_than 8",
+        "risk": "Invalid input may be accepted if validation is missing."
+    },
+    {
+        "requirement_id": "REQ_003",
+        "module": "register",
+        "field": "email",
+        "type": "validation",
+        "rule": "email valid_format contains @",
+        "risk": "Invalid input may be accepted if validation is missing."
+    },
+    {
+        "requirement_id": "REQ_004",
+        "module": "register",
+        "field": "confirm_password",
+        "type": "validation",
+        "rule": "confirm_password same_as_password True",
+        "risk": "Invalid input may be accepted if validation is missing."
+    }
+]

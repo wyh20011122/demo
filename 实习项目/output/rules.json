@@ -1,0 +1,26 @@
+[
+    {
+        "rule_id": "RULE_002",
+        "module": "register",
+        "field": "password",
+        "condition": "length_greater_than",
+        "value": 8,
+        "expected_behavior": "Registration should fail when password length is not greater than 8."
+    },
+    {
+        "rule_id": "RULE_003",
+        "module": "register",
+        "field": "email",
+        "condition": "valid_format",
+        "value": "contains @",
+        "expected_behavior": "Registration should fail when email format is invalid."
+    },
+    {
+        "rule_id": "RULE_004",
+        "module": "register",
+        "field": "confirm_password",
+        "condition": "same_as_password",
+        "value": true,
+        "expected_behavior": "Registration should fail when confirm password does not match password."
+    }
+]

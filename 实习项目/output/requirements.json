@@ -1,26 +1,101 @@
 [
     {
         "requirement_id": "REQ_002",
+        "source_rule_id": "RULE_002",
+        "module": "register",
+        "field": "username",
+        "type": "validation",
+        "rule": "username not_empty True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_003",
+        "source_rule_id": "RULE_003",
+        "module": "register",
+        "field": "username",
+        "type": "security",
+        "rule": "username no_sql_injection True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_004",
+        "source_rule_id": "RULE_004",
+        "module": "register",
+        "field": "username",
+        "type": "security",
+        "rule": "username no_script_tag True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_005",
+        "source_rule_id": "RULE_005",
+        "module": "register",
+        "field": "password",
+        "type": "validation",
+        "rule": "password not_empty True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_006",
+        "source_rule_id": "RULE_006",
         "module": "register",
         "field": "password",
         "type": "validation",
         "rule": "password length_greater_than 8",
-        "risk": "Invalid input may be accepted if validation is missing."
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
     },
     {
-        "requirement_id": "REQ_003",
+        "requirement_id": "REQ_007",
+        "source_rule_id": "RULE_007",
         "module": "register",
         "field": "email",
-        "type": "validation",
+        "type": "format",
         "rule": "email valid_format contains @",
-        "risk": "Invalid input may be accepted if validation is missing."
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
     },
     {
-        "requirement_id": "REQ_004",
+        "requirement_id": "REQ_008",
+        "source_rule_id": "RULE_008",
         "module": "register",
         "field": "confirm_password",
         "type": "validation",
         "rule": "confirm_password same_as_password True",
-        "risk": "Invalid input may be accepted if validation is missing."
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_009",
+        "source_rule_id": "RULE_009",
+        "module": "register",
+        "field": "username",
+        "type": "business",
+        "rule": "username unique True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_010",
+        "source_rule_id": "RULE_010",
+        "module": "login",
+        "field": "username",
+        "type": "validation",
+        "rule": "username not_empty True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_011",
+        "source_rule_id": "RULE_011",
+        "module": "login",
+        "field": "password",
+        "type": "validation",
+        "rule": "password not_empty True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
+    },
+    {
+        "requirement_id": "REQ_012",
+        "source_rule_id": "RULE_012",
+        "module": "login",
+        "field": "credentials",
+        "type": "business",
+        "rule": "credentials correct_username_password True",
+        "risk": "Requirement violation may lead to invalid behavior, security risk, or business inconsistency."
     }
 ]

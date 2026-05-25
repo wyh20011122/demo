@@ -5,17 +5,16 @@
         "case_type": "boundary",
         "description": "Username shorter than required length",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_001"
         ],
-        "input": {
-            "username": "abc",
-            "password": "123456789",
-            "email": "test1@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 200,
+        "actual_response": {
+            "message": "Register success"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0031,
+        "result": "FAIL"
     },
     {
         "case_id": "TC_REG_002",
@@ -23,17 +22,16 @@
         "case_type": "boundary",
         "description": "Username equals boundary length",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_001"
         ],
-        "input": {
-            "username": "abcdef",
-            "password": "123456789",
-            "email": "test2@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 200,
+        "actual_response": {
+            "message": "Register success"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0005,
+        "result": "FAIL"
     },
     {
         "case_id": "TC_REG_003",
@@ -41,20 +39,19 @@
         "case_type": "valid",
         "description": "Valid registration",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_001",
             "RULE_006",
             "RULE_007",
             "RULE_008"
         ],
-        "input": {
-            "username": "abcdefg",
-            "password": "123456789",
-            "email": "valid@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 200,
+        "actual_status": 200,
+        "actual_response": {
+            "message": "Register success"
         },
-        "expected_status": 200
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_004",
@@ -62,17 +59,16 @@
         "case_type": "negative",
         "description": "Username is empty",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_002"
         ],
-        "input": {
-            "username": "",
-            "password": "123456789",
-            "email": "emptyuser@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Username is required"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_005",
@@ -80,17 +76,16 @@
         "case_type": "negative",
         "description": "Password is empty",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_005"
         ],
-        "input": {
-            "username": "validuser1",
-            "password": "",
-            "email": "test5@example.com",
-            "confirm_password": ""
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Password is required"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_006",
@@ -98,17 +93,16 @@
         "case_type": "boundary",
         "description": "Password shorter than required length",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_006"
         ],
-        "input": {
-            "username": "validuser2",
-            "password": "12345678",
-            "email": "test6@example.com",
-            "confirm_password": "12345678"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Password must be longer than 8 characters"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_007",
@@ -116,17 +110,16 @@
         "case_type": "format",
         "description": "Invalid email format",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_007"
         ],
-        "input": {
-            "username": "validuser3",
-            "password": "123456789",
-            "email": "invalidemail",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Invalid email format"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_008",
@@ -134,17 +127,16 @@
         "case_type": "negative",
         "description": "Confirm password does not match password",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_008"
         ],
-        "input": {
-            "username": "validuser4",
-            "password": "123456789",
-            "email": "test8@example.com",
-            "confirm_password": "987654321"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Confirm password does not match"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_009",
@@ -152,17 +144,16 @@
         "case_type": "business",
         "description": "Duplicate username registration",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_009"
         ],
-        "input": {
-            "username": "abcdefg",
-            "password": "123456789",
-            "email": "duplicate@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Username already exists"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_REG_010",
@@ -170,17 +161,16 @@
         "case_type": "security",
         "description": "SQL injection pattern in username",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_003"
         ],
-        "input": {
-            "username": "' OR 1=1 --",
-            "password": "123456789",
-            "email": "sql@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 200,
+        "actual_response": {
+            "message": "Register success"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "FAIL"
     },
     {
         "case_id": "TC_REG_011",
@@ -188,17 +178,16 @@
         "case_type": "security",
         "description": "Script tag in username",
         "endpoint": "/register",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_004"
         ],
-        "input": {
-            "username": "<script>alert(1)</script>",
-            "password": "123456789",
-            "email": "xss@example.com",
-            "confirm_password": "123456789"
+        "expected_status": 400,
+        "actual_status": 200,
+        "actual_response": {
+            "message": "Register success"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "FAIL"
     },
     {
         "case_id": "TC_LOGIN_001",
@@ -206,15 +195,17 @@
         "case_type": "valid",
         "description": "Login with correct username and password",
         "endpoint": "/login",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_012"
         ],
-        "input": {
-            "username": "abcdefg",
-            "password": "123456789"
+        "expected_status": 200,
+        "actual_status": 200,
+        "actual_response": {
+            "data": "Welcome! You have successfully logged in.",
+            "message": "Login success"
         },
-        "expected_status": 200
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_LOGIN_002",
@@ -222,15 +213,16 @@
         "case_type": "negative",
         "description": "Login with wrong password",
         "endpoint": "/login",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_012"
         ],
-        "input": {
-            "username": "abcdefg",
-            "password": "wrongpassword"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Incorrect password"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_LOGIN_003",
@@ -238,15 +230,16 @@
         "case_type": "negative",
         "description": "Login with empty username",
         "endpoint": "/login",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_010"
         ],
-        "input": {
-            "username": "",
-            "password": "123456789"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "Username is required"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     },
     {
         "case_id": "TC_LOGIN_004",
@@ -254,14 +247,15 @@
         "case_type": "negative",
         "description": "Login with non-existing user",
         "endpoint": "/login",
-        "method": "POST",
         "related_rule_ids": [
             "RULE_012"
         ],
-        "input": {
-            "username": "notexistuser",
-            "password": "123456789"
+        "expected_status": 400,
+        "actual_status": 400,
+        "actual_response": {
+            "error": "User does not exist"
         },
-        "expected_status": 400
+        "execution_time_seconds": 0.0003,
+        "result": "PASS"
     }
 ]

@@ -1,34 +1,76 @@
 [
     {
-        "bug_id": "BUG_TC_REG_001",
-        "title": "Requirement validation failed",
+        "title": "Username length validation missing",
         "severity": "HIGH",
         "priority": "P1",
         "module": "register",
-        "related_case": "TC_REG_001",
-        "description": "Username shorter than required length",
+        "related_cases": [
+            "TC_REG_001",
+            "TC_REG_002"
+        ],
+        "related_rule_ids": [
+            "RULE_001"
+        ],
+        "descriptions": [
+            "Username shorter than required length",
+            "Username equals boundary length"
+        ],
         "expected_result": 400,
         "actual_result": 200,
         "actual_response": {
             "message": "Register success"
         },
+        "root_cause": "Backend implementation is inconsistent with PRD requirements.",
         "status": "OPEN",
-        "created_by": "auto_test_plugin"
+        "created_by": "auto_test_plugin",
+        "bug_id": "BUG-20260525-001"
     },
     {
-        "bug_id": "BUG_TC_REG_002",
-        "title": "Requirement validation failed",
-        "severity": "HIGH",
-        "priority": "P1",
+        "title": "SQL injection input validation missing",
+        "severity": "CRITICAL",
+        "priority": "P0",
         "module": "register",
-        "related_case": "TC_REG_002",
-        "description": "Username equals boundary length",
+        "related_cases": [
+            "TC_REG_010"
+        ],
+        "related_rule_ids": [
+            "RULE_003"
+        ],
+        "descriptions": [
+            "SQL injection pattern in username"
+        ],
         "expected_result": 400,
         "actual_result": 200,
         "actual_response": {
             "message": "Register success"
         },
+        "root_cause": "Backend implementation is inconsistent with PRD requirements.",
         "status": "OPEN",
-        "created_by": "auto_test_plugin"
+        "created_by": "auto_test_plugin",
+        "bug_id": "BUG-20260525-002"
+    },
+    {
+        "title": "XSS input validation missing",
+        "severity": "CRITICAL",
+        "priority": "P0",
+        "module": "register",
+        "related_cases": [
+            "TC_REG_011"
+        ],
+        "related_rule_ids": [
+            "RULE_004"
+        ],
+        "descriptions": [
+            "Script tag in username"
+        ],
+        "expected_result": 400,
+        "actual_result": 200,
+        "actual_response": {
+            "message": "Register success"
+        },
+        "root_cause": "Backend implementation is inconsistent with PRD requirements.",
+        "status": "OPEN",
+        "created_by": "auto_test_plugin",
+        "bug_id": "BUG-20260525-003"
     }
 ]

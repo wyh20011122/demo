@@ -7,6 +7,7 @@ CORS(app)
 
 users = {}
 
+
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "Backend is running"}), 200
@@ -27,6 +28,9 @@ def register():
     # Intentional Bug:
     # PRD requires username length > 6,
     # but this backend does NOT validate username length.
+
+    # Intentional Security Weakness:
+    # The backend also does not validate SQL injection or script tags in username.
 
     if not password:
         return jsonify({"error": "Password is required"}), 400

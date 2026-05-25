@@ -1,0 +1,109 @@
+{
+    "validation": [
+        {
+            "rule_id": "RULE_002",
+            "module": "register",
+            "field": "username",
+            "condition": "not_empty",
+            "value": true,
+            "category": "validation",
+            "expected_behavior": "Registration should fail when username is empty."
+        },
+        {
+            "rule_id": "RULE_005",
+            "module": "register",
+            "field": "password",
+            "condition": "not_empty",
+            "value": true,
+            "category": "validation",
+            "expected_behavior": "Registration should fail when password is empty."
+        },
+        {
+            "rule_id": "RULE_006",
+            "module": "register",
+            "field": "password",
+            "condition": "length_greater_than",
+            "value": 8,
+            "category": "validation",
+            "expected_behavior": "Registration should fail when password length is not greater than 8."
+        },
+        {
+            "rule_id": "RULE_008",
+            "module": "register",
+            "field": "confirm_password",
+            "condition": "same_as_password",
+            "value": true,
+            "category": "validation",
+            "expected_behavior": "Registration should fail when confirm password does not match password."
+        },
+        {
+            "rule_id": "RULE_010",
+            "module": "login",
+            "field": "username",
+            "condition": "not_empty",
+            "value": true,
+            "category": "validation",
+            "expected_behavior": "Login should fail when username is empty."
+        },
+        {
+            "rule_id": "RULE_011",
+            "module": "login",
+            "field": "password",
+            "condition": "not_empty",
+            "value": true,
+            "category": "validation",
+            "expected_behavior": "Login should fail when password is empty."
+        }
+    ],
+    "business": [
+        {
+            "rule_id": "RULE_009",
+            "module": "register",
+            "field": "username",
+            "condition": "unique",
+            "value": true,
+            "category": "business",
+            "expected_behavior": "Registration should fail when username already exists."
+        },
+        {
+            "rule_id": "RULE_012",
+            "module": "login",
+            "field": "credentials",
+            "condition": "correct_username_password",
+            "value": true,
+            "category": "business",
+            "expected_behavior": "Login should succeed only when username and password are correct."
+        }
+    ],
+    "format": [
+        {
+            "rule_id": "RULE_007",
+            "module": "register",
+            "field": "email",
+            "condition": "valid_format",
+            "value": "contains @",
+            "category": "format",
+            "expected_behavior": "Registration should fail when email format is invalid."
+        }
+    ],
+    "security": [
+        {
+            "rule_id": "RULE_003",
+            "module": "register",
+            "field": "username",
+            "condition": "no_sql_injection",
+            "value": true,
+            "category": "security",
+            "expected_behavior": "Registration should fail when username contains SQL injection patterns."
+        },
+        {
+            "rule_id": "RULE_004",
+            "module": "register",
+            "field": "username",
+            "condition": "no_script_tag",
+            "value": true,
+            "category": "security",
+            "expected_behavior": "Registration should fail when username contains script tags."
+        }
+    ]
+}
